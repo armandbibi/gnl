@@ -6,7 +6,7 @@
 /*   By: abiestro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 12:51:09 by abiestro          #+#    #+#             */
-/*   Updated: 2018/04/30 17:13:50 by abiestro         ###   ########.fr       */
+/*   Updated: 2018/04/30 21:32:03 by abiestro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,14 @@ static int		ft_build_line(t_reader *reader, int fd)
 	int		size;
 	char	*tmp2;
 
-	if (reader->new_line)
-		if (ft_strchr(reader->new_line, END_LINE))
-			return (1);
-	if (!(tmp = ft_strnew(BUFF_SIZE)))
-		return (0);
+	if (!reader->new_line)
+		reader->new_line = ft_strnew(0);
+	else if (ft_strchr(reader->new_line, END_LINE))
+		return (1);
+	tmp = ft_strnew(BUFF_SIZE);
 	while (!(ft_strchr(reader->new_line, END_LINE))
 			&& (size = read(fd, tmp, BUFF_SIZE)) > 0)
 	{
-		if (!reader->new_line)
-			reader->new_line = ft_strnew(0);
 		tmp2 = ft_strnew(ft_strlen(reader->new_line) + ft_strlen(tmp));
 		ft_strcat(ft_strcpy(tmp2, reader->new_line), tmp);
 		free(reader->new_line);
