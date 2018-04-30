@@ -6,7 +6,7 @@
 /*   By: abiestro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 18:30:19 by abiestro          #+#    #+#             */
-/*   Updated: 2018/04/20 14:13:27 by abiestro         ###   ########.fr       */
+/*   Updated: 2018/04/30 16:58:19 by abiestro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	if (!str)
-		return (0);
 	int i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (*str)
 	{
