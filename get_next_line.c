@@ -6,7 +6,7 @@
 /*   By: abiestro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/20 12:51:09 by abiestro          #+#    #+#             */
-/*   Updated: 2018/04/30 16:51:12 by abiestro         ###   ########.fr       */
+/*   Updated: 2018/04/30 17:13:50 by abiestro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,8 @@ int				get_next_line(const int fd, char **line)
 	size_t			limit;
 	t_reader		*reader;
 
-	reader = NULL;
-	if (!(reader = ft_get_reader(fd, &save, reader)) ||
-			(ft_build_line(reader, fd)) == -1)
+	if (!(reader = ft_get_reader(fd, &save,
+					reader = NULL)) || (ft_build_line(reader, fd)) == -1)
 		return (-1);
 	if (!reader->new_line || !*reader->new_line)
 	{
